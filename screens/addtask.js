@@ -3,12 +3,16 @@ import { View, TextInput, Button } from 'react-native';
 import { Formik } from 'formik';
 import { globalStyles } from '../navigation/GlobalStyles';
 import tasks from '../samples/taskexamples.json';
+import firebase from '../tickets/Firebase';
+
 
 export default function addTask({navigation})
 {
+  
   const pressHandler = () => {
     navigation.navigate('Details');
   }
+
   return(
     <View>
     <Formik
@@ -19,6 +23,7 @@ export default function addTask({navigation})
           console.log(values);
           console.log(tasks);
           alert(' Tarea añadidad con exito ');
+          
         }}
         
         

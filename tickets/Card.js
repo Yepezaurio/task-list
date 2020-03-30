@@ -25,12 +25,14 @@ const styles = StyleSheet.create({
         shadowRadius: 2,
         marginHorizontal: 4,
         marginVertical: 6,
+        padding: 15,
+         
         
     },
 
     cardContent: {
         flexDirection: "row",
-        marginHorizontal: 40,
-        marginVertical: 10
+        marginHorizontal: 20,
+        marginVertical: 5
     }
 })

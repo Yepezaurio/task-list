@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { StyleSheet, View, Text, CheckBox } from 'react-native';
 import tasks from '../samples/taskexamples.json';
 import Card from '../tickets/Card'
-
+// this is my db
+import firebase from '../tickets/Firebase';
 //Variable temporal para mi checkbox de su valor True o False 
 var tempCheckValues = [];
 
@@ -11,6 +12,7 @@ class Details extends Component {
   constructor(props)
   {
     super(props);
+
     this.state = {
       checkBoxChecked: []
     }
@@ -53,11 +55,14 @@ class Details extends Component {
           <View key={e.id}> 
             <Card>
               <CheckBox
+                style= {{ marginRight: 10}}
                 value = { this.state.checkBoxChecked[e.id]}
                 onValueChange = { () => this.mChangeValueCheckBox(e.id, this.state.checkBoxChecked[e.id])}
               />
-              <Text>  { e.task } </Text> 
-              <Text> { e.description }</Text>
+              <Text style= { this.state.checkBoxChecked[e.id] ?  styles.CheckedText  :  styles.unCheckedText   }  >
+                { e.task }   { e.description } 
+              </Text> 
+            
             </Card>
           </View> 
         )}
@@ -66,5 +71,17 @@ class Details extends Component {
   }
  
 }
+
+const styles = StyleSheet.create({
+  CheckedText:{
+    textDecorationLine: "line-through",
+    fontStyle: "Italic",
+    backgroundColor: "#eeeeee",
+    
+  },
+  unCheckedText: {
+    fontWeight: "bold" 
+  }
+})
 
 export default Details
