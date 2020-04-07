@@ -9,7 +9,11 @@ export default function Card(props) {
         <View style={ styles.card }>
             <View style={ styles.cardContent }>
                 { props.children }
-            </View>
+                <View style={{flexDirection: 'row',  justifyContent: 'space-between' }}>
+                 
+                </View>
+               </View>
+           
         </View>
     )
 
